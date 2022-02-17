@@ -49,10 +49,9 @@
     <script>
       (function () {
         const player = document.getElementById("player");
-        const isInFrame = window.location !== window.parent.location;
         
         player.width = window.innerWidth;
-        player.height = isInFrame ? window.innerHeight : window.innerWidth * 0.5625;
+        player.height = window.innerWidth * 0.5625;
 
         new MediaElementPlayer(player, {
           features: [
