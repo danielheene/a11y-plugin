@@ -1,0 +1,30 @@
+name: Publish GitHub Pages
+
+on:
+  push:
+    branches:
+      - demo
+  workflow_dispatch:
+
+jobs:
+  publish-gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Code
+        uses: actions/checkout@v2
+
+      - name: Download HTML
+        run: |
+          curl \
+            -sSL \
+            -o ./dist/a11y/index.html \
+            https://raw.githubusercontent.com/${{ github.repository }}/gh-pages/index.html
+
+      - name: Deploy Website
+        if: success()
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: ./dist/a11y
+          CLEAN: true
