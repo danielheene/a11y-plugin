@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelementplayer.css"
+    />
+    <link rel="stylesheet" href="a11y.min.css" />
+  </head>
+  <body>
+    <video
+      id="player"
+      controls
+      preload="none"
+      playsinline
+      poster="https://delivery-aktion-mensch.stylelabs.cloud/api/public/content/2e7945298d864445b79c120be1eeb87c?v=171e58f2"
+      data-audio-description='[{"type":"audio/x-wav","src":"https://delivery-aktion-mensch.stylelabs.cloud/api/public/content/72091bbef9494cc6a8da57179d69099c?v=8177892b"}]'
+      data-video-description='[{"type":"video/mp4","src":"https://delivery-aktion-mensch.stylelabs.cloud/api/public/content/video-kampagne-begegnung-dgs.mp4?v=dcc58b95"}]'
+      crossorigin="anonymous"
+    >
+      <source
+        src="https://delivery-aktion-mensch.stylelabs.cloud/api/public/content/0e7a69b999dc4dad8b632d323909d1a1?v=17463644"
+        type="video/mp4"
+      />
+
+      <track
+        kind="subtitles"
+        label="Deutsch"
+        srclang="de"
+        src="https://delivery-aktion-mensch.stylelabs.cloud/api/public/content/b59bbca2adfe41c6beb8fc0ce79bf3ba?v=1e320ddd"
+      />
+    </video>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.9/mediaelement-and-player.min.js"></script>
+    <script src="a11y.min.js"></script>
+    <script src="a11y-i18n.js"></script>
+    <script>
+      (function () {
+        var player = document.getElementById("player");
+        player.width = window.innerWidth;
+        player.height = window.innerWidth * 0.5625;
+
+        new MediaElementPlayer(player, {
+          features: [
+            "playpause",
+            "current",
+            "progress",
+            "duration",
+            "volume",
+            "a11y",
+            "fullscreen",
+          ],
+        });
+      })();
+    </script>
+  </body>
+</html>
